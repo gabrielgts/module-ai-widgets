@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Gtstudio_AiConnector::gtstudio">
+                    <!-- Controls access to the AI chat widget and PageBuilder AI generation -->
+                    <resource id="Gtstudio_AiWidgets::management" title="AI Assistant Widget" sortOrder="40"/>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>
