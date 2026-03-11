@@ -1,6 +1,5 @@
 {
     "name": "gtstudio/module-ai-widgets",
-    "version": "1.0.0",
     "description": "AI-powered admin widgets for Magento 2. Provides the floating chat assistant and PageBuilder content generation backed by Gtstudio_AiAgents.",
     "type": "magento2-module",
     "license": "BUSL-1.1",
