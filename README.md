@@ -2,6 +2,23 @@
 
 AI-powered admin widgets for Magento 2. Provides a floating chat assistant on every admin page and an AI content generator inside PageBuilder HTML blocks.
 
+## Preview
+
+![AiWidgets — floating chat assistant and PageBuilder AI content generation](docs/images/aiwidgets-preview.gif)
+
+## AI Studio Ecosystem
+
+Part of the **AI Studio** suite for Magento 2. See all modules:
+
+| Module | Repository | Description |
+|--------|-----------|-------------|
+| **Gtstudio_AiConnector** | [module-aiconnector](https://github.com/gabrielgts/module-aiconnector) | Core AI provider abstraction |
+| **Gtstudio_AiAgents** | [module-ai-agents](https://github.com/gabrielgts/module-ai-agents) | Agent & tool orchestration, cron scheduling, execution log |
+| **Gtstudio_AiWidgets** | *(this module)* | Floating admin chat widget + PageBuilder AI generator |
+| **Gtstudio_AiDataQuery** | [module-ai-data-query](https://github.com/gabrielgts/module-ai-data-query) | Natural-language store analytics (privacy-first) |
+| **Gtstudio_AiKnowledgeBase** | [module-ai-knowledge-base](https://github.com/gabrielgts/module-ai-knowledge-base) | Document upload & RAG retrieval for agents |
+| **Gtstudio_AiDashboard** | *(coming soon)* | AI-powered KPI dashboard with ML insights |
+
 ## What It Does
 
 - **Floating Chat Widget** — a persistent chat panel in the Magento admin, powered by the `admin_assistant` agent
@@ -19,11 +36,9 @@ AI-powered admin widgets for Magento 2. Provides a floating chat assistant on ev
 ## Installation
 
 ```bash
+composer require gtstudio/module-ai-widgets
 php bin/magento module:enable Gtstudio_AiWidgets
 php bin/magento setup:upgrade
-php bin/magento setup:di:compile
-php bin/magento setup:static-content:deploy -f --area adminhtml
-php bin/magento cache:flush
 ```
 
 ## Setup
