@@ -14,6 +14,12 @@ class Index extends Action
 {
     public const ADMIN_RESOURCE = 'Gtstudio_AiWidgets::management';
 
+    /**
+     * @param Action\Context $context
+     * @param JsonFactory $resultJsonFactory
+     * @param PageBuilderGenerator $generator
+     * @param LoggerInterface $logger
+     */
     public function __construct(
         Action\Context $context,
         private JsonFactory $resultJsonFactory,
@@ -24,6 +30,8 @@ class Index extends Action
     }
 
     /**
+     * Handle the PageBuilder AI generation AJAX request.
+     *
      * @return Json
      */
     public function execute(): Json
@@ -51,7 +59,8 @@ class Index extends Action
             ]);
             return $this->resultJsonFactory->create()->setData([
                 'success' => false,
-                'error' => (string) __('AI generation failed. Please check the module configuration.' . $e->getMessage())
+                'error' => (string) __('AI generation failed. Please check the module configuration.')
+                    . ' ' . $e->getMessage()
             ]);
         }
 
@@ -59,7 +68,10 @@ class Index extends Action
             $this->logger->warning('PageBuilder AI returned empty content for prompt: ' . $prompt);
             return $this->resultJsonFactory->create()->setData([
                 'success' => false,
-                'error' => (string) __('The AI returned an empty response. Please verify the page_builder agent instructions in the admin panel.')
+                'error' => (string) __(
+                    'The AI returned an empty response.'
+                    . ' Please verify the page_builder agent instructions in the admin panel.'
+                )
             ]);
         }
 

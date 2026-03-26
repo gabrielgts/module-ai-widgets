@@ -33,6 +33,11 @@ Apply inline CSS styles for colors, spacing, typography, and layout.
 Ensure the HTML is self-contained and renderable without external stylesheets.
 PROMPT;
 
+    /**
+     * @param GetAiAgentByCodeInterface $getAiAgentByCode
+     * @param SaveAiAgentInterface $saveAiAgent
+     * @param AiAgentInterfaceFactory $agentFactory
+     */
     public function __construct(
         private readonly GetAiAgentByCodeInterface $getAiAgentByCode,
         private readonly SaveAiAgentInterface $saveAiAgent,
@@ -40,6 +45,9 @@ PROMPT;
     ) {
     }
 
+    /**
+     * @inheritdoc
+     */
     public function apply(): self
     {
         try {
@@ -59,11 +67,17 @@ PROMPT;
         return $this;
     }
 
+    /**
+     * @inheritdoc
+     */
     public static function getDependencies(): array
     {
         return [CreatePageBuilderAgent::class];
     }
 
+    /**
+     * @inheritdoc
+     */
     public function getAliases(): array
     {
         return [];

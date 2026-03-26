@@ -9,6 +9,9 @@ class AdminChatService
 {
     private const AGENT_CODE = 'admin_navigation';
 
+    /**
+     * @param AgentRunInterface $agentRunner
+     */
     public function __construct(
         private readonly AgentRunInterface $agentRunner
     ) {
@@ -31,6 +34,10 @@ class AdminChatService
 
     /**
      * Embed prior conversation turns into the message so the agent has context.
+     *
+     * @param string $message
+     * @param array $history
+     * @return string
      */
     private function buildContextualMessage(string $message, array $history): string
     {

@@ -10,6 +10,12 @@ use Magento\Backend\Block\Template\Context;
 
 class Widget extends Template
 {
+    /**
+     * @param Context $context
+     * @param TokenCostServiceInterface $tokenCostService
+     * @param ConfigProvider $configProvider
+     * @param array $data
+     */
     public function __construct(
         Context $context,
         private readonly TokenCostServiceInterface $tokenCostService,
@@ -19,11 +25,21 @@ class Widget extends Template
         parent::__construct($context, $data);
     }
 
+    /**
+     * Get the AJAX endpoint URL for the chat controller.
+     *
+     * @return string
+     */
     public function getChatEndpointUrl(): string
     {
         return $this->getUrl('aiwidgets/chat/message');
     }
 
+    /**
+     * Get the current form key for CSRF protection.
+     *
+     * @return string
+     */
     public function getFormKey(): string
     {
         return $this->formKey->getFormKey();

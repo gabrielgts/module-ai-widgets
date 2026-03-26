@@ -21,6 +21,11 @@ class PageBuilderGenerator
         'If the description is complex, reduce visual detail rather than cutting the output short. ' .
         'Never return an empty response.';
 
+    /**
+     * @param NeuronClient $neuronClient
+     * @param AiRequestInterfaceFactory $requestFactory
+     * @param ConfigProvider $config
+     */
     public function __construct(
         private readonly NeuronClient $neuronClient,
         private readonly AiRequestInterfaceFactory $requestFactory,

@@ -41,7 +41,8 @@ class CreateAdminNavigationAgent implements DataPatchInterface
         $agent->setDescription('Floating admin assistant that helps users navigate the Magento admin panel.');
         $agent->setBackground(
             "You are a Magento admin navigation assistant.\n" .
-            "Your sole purpose is to help admin users find features, settings, and pages within the Magento admin panel."
+            'Your sole purpose is to help admin users find features, settings,' .
+            ' and pages within the Magento admin panel.'
         );
         $agent->setSteps(
             "Identify the feature or setting the user is looking for.\n" .
@@ -79,6 +80,8 @@ class CreateAdminNavigationAgent implements DataPatchInterface
     }
 
     /**
+     * Check whether the admin navigation agent already exists.
+     *
      * @return bool
      */
     private function agentExists(): bool
